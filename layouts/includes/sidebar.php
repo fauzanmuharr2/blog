@@ -9,7 +9,7 @@
             </li>
             <li class="nav-title">Manajeman BLog</li>
             <li class="nav-item">
-              <a class="nav-link" href="/kategori">
+              <a class="nav-link" href="/admin/kategori">
                 <i class="nav-icon icon-drop"></i>Kategori</a>
             </li>
             <li class="nav-item">

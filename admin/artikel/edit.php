@@ -1,37 +1,30 @@
-<?php
-session_start();
-if (!$_SESSION['login']) {
-  echo "<script type='text/javascript'>
-  alert('Maaf Harus Login Terlebih Dahulu');
-  window.location = '/login.php'148</script>";
-}else {
-  include ('../config/database.php');
-  $user = new Database();
-  $user = mysqli_query($user->koneksi,
-  "select * from users where password='$_SESSION[login]'");
-  // var_dump($_SESSION['login]);
-  $user = mysqli_fetch_array($user);
+<?php foreach ($kategori->edit($data['id']) as $xx) {
+    $id = $xx['id'];
+    $nama = $xx['nama'];
+}
 ?>
-<!-- Header -->
-<?php include('../layouts/includes/head.php');?>
-<!-- End Header -->
-  <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-<!-- Navbar -->
-<?php include('../layouts/includes/navbar.php');?>
-<!-- EndNavbar -->
-    <div class="app-body">
-      <!-- Sidebar -->
-      <?php include('../layouts/includes/sidebar.php');?>
-      <!-- EndSidebar -->
-      <!-- MainKonten -->
-      <main class="main"></main>
-      <!-- Endmainkonten -->
+<div class="modal fade kategori-<?php echo $xx['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="/admin/kategori/proses.php?aksi=update" method="POST">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit kategori </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <div class="form-group">
+                        <label>Nama Kategori</label>
+                        <input type="text" name="nama" value="<?php echo $xx['nama']; ?>" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" name="save" class="btn btn-block btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <?php include('../layouts/includes/footer.php');?>
-    <!-- CoreUI and necessary plugins-->
-    <!-- Scrip -->
-    <?php include('../layouts/includes/scripts.php');?>
-    <!-- Endscrip -->
-  </body>
-</html>
-<?php } ?>
+</div>
