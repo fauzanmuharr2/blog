@@ -13,7 +13,7 @@
                 <i class="nav-icon icon-drop"></i>Kategori</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/artikel">
+              <a class="nav-link" href="/admin/artikel">
                 <i class="nav-icon icon-pencil"></i>Artikel</a>
             </li>
             

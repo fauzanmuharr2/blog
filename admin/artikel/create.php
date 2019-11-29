@@ -6,18 +6,13 @@ if (!$_SESSION['login']) {
             window.location = '/login.php'
         </script>";
 } else {
-    include('../../config/database.php');
     include('../../config/koneksi.php');
-    $user = new Database();
-    $user = mysqli_query(
-        $user->koneksi,
-        "select * from users where password='$_SESSION[login]'"
-    );
-    // var_dump($_SESSION['login']);
-    $user = mysqli_fetch_array($user); ?>
+     ?>
+
     <!-- Header -->
     <?php include('../../layouts/includes/head.php') ?>
     <!-- End Header -->
+
     <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
         <!-- Navbar -->
         <?php include('../../layouts/includes/navbar.php') ?>
@@ -80,7 +75,6 @@ if (!$_SESSION['login']) {
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="hidden" name="id_user" value="<?php echo $user['id'] ?>">
                                             <button type="submit" name="save" class="btn btn-primary btn-block">Simpan Data</button>
                                         </div>
                                     </form>
@@ -102,6 +96,7 @@ if (!$_SESSION['login']) {
         <?php include('../../layouts/includes/scripts.php') ?>
         <!-- End Scripts -->
     </body>
+
     </html>
 <?php
 } ?>
