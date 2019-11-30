@@ -25,4 +25,5 @@ include 'kategori.php';
 
 include 'artikel.php';
 
+include 'frontend.php';
 ?>
