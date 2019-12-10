@@ -88,7 +88,7 @@ if (!$_SESSION['login']) {
             <!-- End Main Conten -->
 
         </div>
-        <!-- Footer -->
+        <!-- Fo-oter -->
         <?php include('../../layouts/includes/footer.php') ?>
         <!-- End Footer -->
         <!-- CoreUI and necessary plugins-->
